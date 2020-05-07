@@ -448,9 +448,9 @@ public class ConversationListFragment extends Fragment
         DcContact contact = dcContext.getContact(contactId);
         new AlertDialog.Builder(getActivity())
                 .setMessage(getActivity().getString(R.string.ask_start_chat_with, contact.getNameNAddr()))
-                .setPositiveButton(android.R.string.ok, (dialog, which) -> {
+                .setPositiveButton(android.R.string.ok, (dialog, which) ->  {
                   int belongingChatId = dcContext.createChatByMsgId(msgId);
-                  if (belongingChatId != 0) {
+                  if( belongingChatId != 0 ) {
                     handleCreateConversation(belongingChatId);
                   }
                 })
@@ -466,7 +466,7 @@ public class ConversationListFragment extends Fragment
 
       handleCreateConversation(chatId);
     } else {
-      ConversationListAdapter adapter = (ConversationListAdapter) list.getAdapter();
+      ConversationListAdapter adapter = (ConversationListAdapter)list.getAdapter();
       adapter.toggleThreadInBatchSet(item.getChatId());
 
       if (adapter.getBatchSelections().size() == 0) {
@@ -546,7 +546,7 @@ public class ConversationListFragment extends Fragment
       inflater.inflate(R.menu.conversation_list_batch_pin, menu);
 
       if (archive) inflater.inflate(R.menu.conversation_list_batch_unarchive, menu);
-      else inflater.inflate(R.menu.conversation_list_batch_archive, menu);
+      else         inflater.inflate(R.menu.conversation_list_batch_archive, menu);
 
       inflater.inflate(R.menu.conversation_list, menu);
     }
