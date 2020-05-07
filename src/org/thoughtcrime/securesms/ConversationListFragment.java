@@ -207,7 +207,7 @@ public class ConversationListFragment extends Fragment
                       actionMode.finish();
                       actionMode = null;
                       // Start this activity again, this time with an intent without sharing:
-                      startActivity(new Intent(getActivity(), ConversationListActivity.class));
+                      startActivity(ConversationListActivity.getLaunchIntent(getActivity()));
                     })
                     .show();
           }
